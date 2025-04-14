@@ -11,7 +11,7 @@ def home(request):
             return HttpResponseRedirect('/teacher/thank-you/')
     else:
         form = TeachersForm()
-        return render(request, 'teachers/home.html', {'form':form})
+    return render(request, 'teachers/home.html', {'form':form})
 
 def thank(request):
     return HttpResponse("Thank You, Data is saved")

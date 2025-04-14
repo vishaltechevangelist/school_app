@@ -19,7 +19,9 @@
         <![endif]-->
         <form action="" method="POST">
             {% csrf_token %}
-            {{form}}
+            <table>
+                {{form.as_table}}
+            </table>
             <button type="submit">Submit</button>
         </form>
         <script src="" async defer></script>
