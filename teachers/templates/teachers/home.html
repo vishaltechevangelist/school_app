@@ -19,10 +19,21 @@
         <![endif]-->
         <form action="" method="POST">
             {% csrf_token %}
-            <table>
-                {{form.as_table}}
-            </table>
-            <button type="submit">Submit</button>
+                {{form.name.label_tag}}
+                {{form.name}}
+                {{form.name.errors}}
+                <br/>
+                {{form.email.label_tag}}
+                {{form.email}}
+                {{form.email.errors}}
+                <br/>
+                {{form.email.help_text}}
+                <br/>
+                {{form.phone_number.label_tag}}
+                {{form.phone_number}}
+                {{form.phone_number.errors}}
+                <br/>
+                <button type="submit">Submit</button>
         </form>
         <script src="" async defer></script>
     </body>
