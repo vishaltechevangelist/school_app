@@ -64,5 +64,5 @@ class CustomClassMiddleware:
         return None
     
     def process_template_response(self, request, response):
-        print("process_template_response")
+        # print("process_template_response")
         return response
