@@ -19,7 +19,10 @@ def thank(request):
 
 def data(request):
     alldata = Students.objects.all()
-    return render(request, 'students/alldata.html', {'alldata':alldata})
+    # return render(request, 'students/alldata.html', {'alldata':alldata})
+    response = render(request, 'students/alldata.html', {'alldata':alldata})
+    response.set_cookie('name', 'Adharv', httponly=True)
+    return response
 
 def update(request, id):
     student = Students.objects.get(id=id)
@@ -37,3 +40,22 @@ def delete(request, id):
         student = Students.objects.get(id=id)
         student.delete()
     return HttpResponseRedirect('/student/home/')
+
+def setCookie(request):
+    response = HttpResponse('Set')
+    response.set_cookie('theme', 'dark', max_age=5)
+    response.set_cookie('name','vishal')
+    return response
+
+def getCookie(request):
+    return HttpResponse(f"<h1>GET</h1> {request.COOKIES}")
+
+def deleteCookie(request):
+    response = HttpResponse('Deleted')
+    response.delete_cookie('name')
+    return response
+
+def updateCookie(request):
+    response = HttpResponse('Updated')
+    response.set_cookie('name', 'Priyanka')
+    return response
