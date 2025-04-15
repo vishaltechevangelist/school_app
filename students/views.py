@@ -18,6 +18,7 @@ def thank(request):
     return HttpResponse("Thank You, Data is saved")
 
 def data(request):
+    # raise Exception("Get data raising exception!!!")
     alldata = Students.objects.all()
     # return render(request, 'students/alldata.html', {'alldata':alldata})
     response = render(request, 'students/alldata.html', {'alldata':alldata})
